@@ -8,6 +8,10 @@ type FormValues = {
   username: string;
   email: string;
   channel: string;
+  social: {
+    twitter: string;
+    facebook: string;
+  };
 };
 
 const YouTubeForm = () => {
@@ -26,7 +30,11 @@ const YouTubeForm = () => {
         username: "Batman",
         email: data.email,
         channel: "",
-      }
+        social: {
+          twitter: "",
+          facebook: "",
+        },
+      };
     },
   });
   const { register, control, handleSubmit, formState } = form;
@@ -108,6 +116,12 @@ const YouTubeForm = () => {
           })}
         />
         <p className="error">{errors.channel?.message}</p>
+
+        <label htmlFor="twitter">Twitter</label>
+        <input type="text" id="channel" {...register("social.twitter")} />
+
+        <label htmlFor="facebook">Facebook</label>
+        <input type="text" id="channel" {...register("social.facebook")} />
 
         <button>Submit</button>
       </form>
